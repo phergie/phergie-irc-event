@@ -40,6 +40,13 @@ class Event implements EventInterface
     protected $params;
 
     /**
+     * Command coming from the parser
+     *
+     * @var string
+     */
+    protected $command;
+
+    /**
      * Accessor method to retrieve the message
      *
      * @return string text of the message
@@ -97,5 +104,25 @@ class Event implements EventInterface
     public function setParams(array $params)
     {
         $this->params = $params;
+    }
+
+    /**
+     * Accessor method to retrieve the command
+     *
+     * @return string the command from the parser
+     */
+    public function getCommand()
+    {
+       return $this->command;
+    }
+
+    /**
+     * Accessor method to set the command
+     *
+     * @param string $command the command from the parser
+     */
+    public function setCommand($command)
+    {
+        $this->command = $command;
     }
 }

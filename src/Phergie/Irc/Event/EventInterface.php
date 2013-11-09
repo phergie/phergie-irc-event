@@ -56,4 +56,18 @@ interface EventInterface
      * @return array array of parameters
      */
     public function getParams();
+
+    /**
+     * Accessor method to set the command
+     *
+     * @param string $command
+     */
+    public function setCommand($command);
+
+    /**
+     * Accessor method to retrieve the command
+     *
+     * @return string
+     */
+    public function getCommand();
 }
