@@ -26,7 +26,7 @@ class ParserConverter
      */
     public function convert(array $parserOutput)
     {
-        if (!empty($parserOutput['targets']) {
+        if (!empty($parserOutput['targets'])) {
            $event = new TargtedEvent();
            $event->setTargets($parserOutput['targets']);
         } else {
