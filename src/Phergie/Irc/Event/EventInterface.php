@@ -34,7 +34,7 @@ interface EventInterface
      *
      * @param \Phergie\ConnectionInterface $connection
      */
-    public function setConnection(\Phergie\ConnectionInterface);
+    public function setConnection(\Phergie\ConnectionInterface $connection);
 
     /**
      * Accessor method to retrieve connection instance
