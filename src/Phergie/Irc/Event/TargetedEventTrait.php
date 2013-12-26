@@ -16,7 +16,7 @@ namespace Phergie\Event;
  * @category Phergie
  * @package Phergie\Event
  */
-trait TargetedEventTrait implements TargetedEventInterface
+trait TargetedEventTrait
 {
     /**
      * Array of targets

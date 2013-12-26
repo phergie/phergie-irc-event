@@ -13,7 +13,7 @@ namespace Phergie\Event;
 /**
  * Interface for the TargetedEvent
  */
-interface TargetedEventInterface
+interface TargetedEventInterface extends EventInterface
 {
     /**
      * Accessor method to retrieve targets

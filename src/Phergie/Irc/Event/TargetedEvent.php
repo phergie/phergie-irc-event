@@ -16,7 +16,7 @@ namespace Phergie\Event;
  * @category Phergie
  * @package Phergie\Event
  */
-class TargetedEvent extends Event
+class TargetedEvent extends Event implements TargetedEventInterface
 {
     use TargetedEventTrait;
 }
