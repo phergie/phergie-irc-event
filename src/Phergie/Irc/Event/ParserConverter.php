@@ -5,7 +5,7 @@
  * @link https://github.com/phergie/phergie-irc-event for the canonical source repository
  * @copyright Copyright (c) 2008-2013 Phergie Development Team (http://phergie.org)
  * @license http://phergie.org/license New BSD License
- * @package Phergie\Event
+ * @package Phergie\Irc\Event
  */
 
 namespace Phergie\Irc\Event;
@@ -22,7 +22,7 @@ class ParserConverter
      * Method to convert parser results into an Event or TargetedEvent object
      *
      * @param array $parserOutput output from the parser
-     * @return \Phergie\Irc\EventInterface a populated instance of EventInterface
+     * @return \Phergie\Irc\Event\EventInterface a populated instance of EventInterface
      */
     public function convert(array $parserOutput)
     {
