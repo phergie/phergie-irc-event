@@ -2,7 +2,7 @@
 /**
  * Phergie (http://phergie.org)
  *
- * @link http://github.com/phergie/phergie-irc-bot-react for the canonical source repository
+ * @link https://github.com/phergie/phergie-irc-event for the canonical source repository
  * @copyright Copyright (c) 2008-2013 Phergie Development Team (http://phergie.org)
  * @license http://phergie.org/license New BSD License
  * @package Phergie\Event
