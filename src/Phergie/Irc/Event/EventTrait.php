@@ -28,7 +28,7 @@ trait EventTrait
     /**
      * Connection instance
      *
-     * @var \Phergie\ConnectionInterface
+     * @var \Phergie\Irc\ConnectionInterface
      */
     protected $connection;
 
@@ -69,7 +69,7 @@ trait EventTrait
     /**
      * Accessor method to retrieve the connection
      *
-     * @return \Phergie\ConnectionInterface
+     * @return \Phergie\Irc\ConnectionInterface
      */
     public function getConnection()
     {
@@ -79,9 +79,9 @@ trait EventTrait
     /**
      * Accessor method to set the connection
      *
-     * @param \Phergie\ConnectionInterface $connection
+     * @param \Phergie\Irc\ConnectionInterface $connection
      */
-    public function setConnection(\Phergie\ConnectionInterface $connection)
+    public function setConnection(\Phergie\Irc\ConnectionInterface $connection)
     {
         $this->connection = $connection;
     }
