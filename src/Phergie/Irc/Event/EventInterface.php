@@ -32,14 +32,15 @@ interface EventInterface
     /**
      * Accessor method to set connection instance
      *
-     * @param \Phergie\ConnectionInterface $connection
+     * @param \Phergie\Irc\ConnectionInterface $connection
+     * @return
      */
-    public function setConnection(\Phergie\ConnectionInterface $connection);
+    public function setConnection(\Phergie\Irc\ConnectionInterface $connection);
 
     /**
      * Accessor method to retrieve connection instance
      *
-     * @return \Phergie\ConnectionInterface
+     * @return \Phergie\Irc\ConnectionInterface
      */ 
     public function getConnection();
 
