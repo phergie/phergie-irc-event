@@ -1,0 +1,21 @@
+{
+    "name": "phergie/phergie-irc-event",
+    "description": "PHP data structure for IRC event information",
+    "keywords": [ "irc", "event" ],
+    "license": "BSD-2-Clause",
+    "support": {
+        "email": "team@phergie.org",
+        "irc": "irc://irc.freenode.net/phergie",
+        "issues": "https://github.com/phergie/phergie-irc-event/issues",
+        "source": "https://github.com/phergie/phergie-irc-event"
+    },
+    "require": {
+        "php": ">=5.4",
+        "phergie/phergie-irc-connection": "1.1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Phergie": "src"
+        }
+    }
+}
