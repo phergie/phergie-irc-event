@@ -11,7 +11,8 @@
 namespace Phergie\Irc\Event;
 
 /**
- * ParserConverter converts the output from the parser into a proper object
+ * Converts data for a single event output by a parser implementing the
+ * \Phergie\Irc\ParserInterface interface into an event object.
  *
  * @category Phergie
  * @package Phergie\Irc\Event
@@ -19,23 +20,30 @@ namespace Phergie\Irc\Event;
 class ParserConverter
 {
     /**
-     * Method to convert parser results into an Event or TargetedEvent object
+     * Converts event data into an object.
      *
-     * @param array $parserOutput output from the parser
-     * @return \Phergie\Irc\Event\EventInterface a populated instance of EventInterface
+     * @param array $data Event data output by the parser
+     * @return \Phergie\Irc\Event\EventInterface
      */
-    public function convert(array $parserOutput)
+    public function convert(array $data)
     {
-        if (!empty($parserOutput['targets'])) {
-           $event = new TargetedEvent();
-           $event->setTargets($parserOutput['targets']);
+        if (empty($data['code'])) {
+            $event = new UserEvent;
+            $event->setPrefix($data['prefix']);
+            $event->setNick($data['nick']);
+            $event->setUsername($data['username']);
+            $event->setHost($data['host']);
         } else {
-            $event = new Event();
+            $event = new ServerEvent;
+            $event->setServername($data['servername']);
+            $event->setCode($data['code']);
         }
-        $event->setMessage($parserOutput['message']);
-        $event->setParams($parserOutput['params']);
-        $event->setCommand($parserOutput['command']);
+        $event->setMessage($data['message']);
+        $event->setParams($data['params']);
+        $event->setCommand($data['command']);
+        if (!empty($data['targets'])) {
+           $event->setTargets($data['targets']);
+        }
         return $event;
     }
 }
-        

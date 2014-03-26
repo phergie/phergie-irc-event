@@ -11,12 +11,145 @@
 namespace Phergie\Irc\Event;
 
 /**
- * Event 
+ * Base class for events.
  *
  * @category Phergie
  * @package Phergie\Irc\Event
  */
 class Event implements EventInterface
 {
-    use EventTrait;
+    /**
+     * Original unparsed message
+     *
+     * @var string
+     */
+    protected $message;
+
+    /**
+     * Metadata for the connection over which the event was received
+     *
+     * @var \Phergie\Irc\ConnectionInterface
+     */
+    protected $connection;
+
+    /**
+     * Command parameters parsed from the message
+     *
+     * @var array
+     */
+    protected $params;
+
+    /**
+     * Command parsed from the message
+     *
+     * @var string
+     */
+    protected $command;
+
+    /**
+     * Targets parsed from the message, typically user nicks or channel names
+     *
+     * @var array
+     */
+    protected $targets;
+
+    /**
+     * Sets the original unparsed message.
+     *
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
+
+    /**
+     * Returns the original unparsed message.
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * Sets metadata for the connection over which the message was received.
+     *
+     * @param \Phergie\Irc\ConnectionInterface $connection
+     */
+    public function setConnection(\Phergie\Irc\ConnectionInterface $connection)
+    {
+        $this->connection = $connection;
+    }
+
+    /**
+     * Returns metadata for the connection over which the message was received.
+     *
+     * @return \Phergie\Irc\ConnectionInterface
+     */
+    public function getConnection()
+    {
+        return $this->connection;
+    }
+
+    /**
+     * Sets the command parameters parsed from the message.
+     *
+     * @param array $params Enumerated array of parameter values
+     */
+    public function setParams(array $params)
+    {
+        $this->params = $params;
+    }
+
+    /**
+     * Returns the command parameters parsed from the message.
+     *
+     * @return array Enumerated array of parameter values
+     */
+    public function getParams()
+    {
+        return $this->params;
+    }
+
+    /**
+     * Sets the command parsed from the message.
+     *
+     * @param string $command
+     */
+    public function setCommand($command)
+    {
+        $this->command = $command;
+    }
+
+    /**
+     * Returns the command parsed from the message.
+     *
+     * @return string
+     */
+    public function getCommand()
+    {
+        return $this->command;
+    }
+
+    /**
+     * Returns targets parsed from the message.
+     *
+     * @return array
+     */
+    public function getTargets()
+    {
+        return $this->targets;
+    }
+
+    /**
+     * Sets targets parsed from the message.
+     *
+     * @param array targets
+     */
+    public function setTargets($targets)
+    {
+        $this->targets = $targets;
+    }
 }

@@ -11,64 +11,79 @@
 namespace Phergie\Irc\Event;
 
 /**
- * Interface for \Phergie\Irc\Event
+ * Interface for a base event class.
  */
 interface EventInterface
 {
     /**
-     * Accessor method to set message property
+     * Sets the original unparsed message.
      *
-     * @param string $message text of the message
+     * @param string $message
      */
     public function setMessage($message);
 
     /**
-     * Accessor method to retrieve message property
+     * Returns the original unparsed message.
      *
-     * @return string text of the message
+     * @return string
      */
     public function getMessage();
 
     /**
-     * Accessor method to set connection instance
+     * Sets metadata for the connection over which the message was received.
      *
      * @param \Phergie\Irc\ConnectionInterface $connection
-     * @return
      */
     public function setConnection(\Phergie\Irc\ConnectionInterface $connection);
 
     /**
-     * Accessor method to retrieve connection instance
+     * Returns metadata for the connection over which the message was received.
      *
      * @return \Phergie\Irc\ConnectionInterface
-     */ 
+     */
     public function getConnection();
 
     /**
-     * Accessor method to set parameter property
+     * Sets the command parameters parsed from the message.
      *
-     * @param array $params array of parameters
+     * @param array $params Enumerated array of parameter values
      */
     public function setParams(array $params);
 
     /**
-     * Accessor method to retrieve parameter property
+     * Returns the command parameters parsed from the message.
      *
-     * @return array array of parameters
+     * @return array Enumerated array of parameter values
      */
     public function getParams();
 
     /**
-     * Accessor method to set the command
+     * Sets the command parsed from the message.
      *
      * @param string $command
      */
     public function setCommand($command);
 
     /**
-     * Accessor method to retrieve the command
+     * Returns the command parsed from the message.
      *
      * @return string
      */
     public function getCommand();
+
+    /**
+     * Sets targets parsed from the message, typically user nicks or channel
+     * names.
+     *
+     * @param array $targets
+     */
+    public function setTargets(array $targets);
+
+    /**
+     * Returns targets parsed from the message, typically user nicks or channel
+     * names.
+     *
+     * @return array
+     */
+    public function getTargets();
 }
