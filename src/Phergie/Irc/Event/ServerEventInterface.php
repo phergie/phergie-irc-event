@@ -16,7 +16,7 @@ namespace Phergie\Irc\Event;
  * @category Phergie
  * @package Phergie\Irc\Event
  */
-class ServerEventInterface extends EventInterface
+interface ServerEventInterface extends EventInterface
 {
     /**
      * Returns the server name.

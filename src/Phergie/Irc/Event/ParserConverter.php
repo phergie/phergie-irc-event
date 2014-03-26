@@ -31,19 +31,22 @@ class ParserConverter
             $event = new UserEvent;
             $event->setPrefix($data['prefix']);
             $event->setNick($data['nick']);
-            $event->setUsername($data['username']);
+            $event->setUsername($data['user']);
             $event->setHost($data['host']);
+            if (!empty($data['targets'])) {
+               $event->setTargets($data['targets']);
+            }
         } else {
             $event = new ServerEvent;
             $event->setServername($data['servername']);
             $event->setCode($data['code']);
         }
         $event->setMessage($data['message']);
+        if (isset($data['params']['all'])) {
+            unset($data['params']['all']);
+        }
         $event->setParams($data['params']);
         $event->setCommand($data['command']);
-        if (!empty($data['targets'])) {
-           $event->setTargets($data['targets']);
-        }
         return $event;
     }
 }

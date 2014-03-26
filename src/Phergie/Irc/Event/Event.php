@@ -37,7 +37,7 @@ class Event implements EventInterface
      *
      * @var array
      */
-    protected $params;
+    protected $params = array();
 
     /**
      * Command parsed from the message
@@ -45,13 +45,6 @@ class Event implements EventInterface
      * @var string
      */
     protected $command;
-
-    /**
-     * Targets parsed from the message, typically user nicks or channel names
-     *
-     * @var array
-     */
-    protected $targets;
 
     /**
      * Sets the original unparsed message.
@@ -131,25 +124,5 @@ class Event implements EventInterface
     public function getCommand()
     {
         return $this->command;
-    }
-
-    /**
-     * Returns targets parsed from the message.
-     *
-     * @return array
-     */
-    public function getTargets()
-    {
-        return $this->targets;
-    }
-
-    /**
-     * Sets targets parsed from the message.
-     *
-     * @param array targets
-     */
-    public function setTargets($targets)
-    {
-        $this->targets = $targets;
     }
 }

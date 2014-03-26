@@ -70,20 +70,4 @@ interface EventInterface
      * @return string
      */
     public function getCommand();
-
-    /**
-     * Sets targets parsed from the message, typically user nicks or channel
-     * names.
-     *
-     * @param array $targets
-     */
-    public function setTargets(array $targets);
-
-    /**
-     * Returns targets parsed from the message, typically user nicks or channel
-     * names.
-     *
-     * @return array
-     */
-    public function getTargets();
 }

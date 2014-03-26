@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5930a38edbe7153c111b2e34ab1f484e",
+    "hash": "59ba14cce2b8055001274cce9b3e10c6",
     "packages": [
         {
             "name": "phergie/phergie-irc-connection",

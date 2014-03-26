@@ -73,4 +73,20 @@ interface UserEventInterface extends EventInterface
      * @param string host
      */
     public function setHost($host);
+
+    /**
+     * Sets targets parsed from the message, typically user nicks or channel
+     * names.
+     *
+     * @param array $targets
+     */
+    public function setTargets(array $targets);
+
+    /**
+     * Returns targets parsed from the message, typically user nicks or channel
+     * names.
+     *
+     * @return array
+     */
+    public function getTargets();
 }

@@ -47,6 +47,13 @@ class UserEvent extends Event implements UserEventInterface
     protected $host;
 
     /**
+     * Targets parsed from the message, typically user nicks or channel names
+     *
+     * @var array
+     */
+    protected $targets = array();
+
+    /**
      * Gets the prefix identifying the sender of the event.
      *
      * @return string
@@ -124,5 +131,25 @@ class UserEvent extends Event implements UserEventInterface
     public function setHost($host)
     {
         $this->host = $host;
+    }
+
+    /**
+     * Returns targets parsed from the message.
+     *
+     * @return array
+     */
+    public function getTargets()
+    {
+        return $this->targets;
+    }
+
+    /**
+     * Sets targets parsed from the message.
+     *
+     * @param array targets
+     */
+    public function setTargets(array $targets)
+    {
+        $this->targets = $targets;
     }
 }
