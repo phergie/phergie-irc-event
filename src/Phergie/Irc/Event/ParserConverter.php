@@ -28,7 +28,13 @@ class ParserConverter
     public function convert(array $data)
     {
         if (empty($data['code'])) {
-            $event = new UserEvent;
+            if (empty($data['ctcp'])) {
+                $event = new UserEvent;
+            } else {
+                $event = new CtcpEvent;
+                $event->setCtcpCommand($data['ctcp']['command']);
+                $event->setCtcpParams($data['ctcp']['params']);
+            }
             $event->setPrefix($data['prefix']);
             $event->setNick($data['nick']);
             $event->setUsername($data['user']);

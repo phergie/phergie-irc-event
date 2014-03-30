@@ -54,6 +54,23 @@ class ParserConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Checks that user event data has been converted.
+     *
+     * @param array $data
+     * @param \Phergie\Irc\Event\UserEvent $event
+     */
+    protected function checkUserEventData(array $data, UserEvent $event)
+    {
+        $this->assertSame($data['prefix'], $event->getPrefix());
+        $this->assertSame($data['nick'], $event->getNick());
+        $this->assertSame($data['user'], $event->getUsername());
+        $this->assertSame($data['host'], $event->getHost());
+        $this->assertSame($data['message'], $event->getMessage());
+        $this->assertSame($data['command'], $event->getCommand());
+        $this->assertSame($data['targets'], $event->getTargets());
+    }
+
+    /**
      * Tests convert() with a user event with targets.
      */
     public function testConvertWithUserEvent()
@@ -63,13 +80,7 @@ class ParserConverterTest extends \PHPUnit_Framework_TestCase
         unset($params['all']);
         $event = $this->converter->convert($data);
         $this->assertInstanceOf('\Phergie\Irc\Event\UserEvent', $event);
-        $this->assertSame($data['prefix'], $event->getPrefix());
-        $this->assertSame($data['nick'], $event->getNick());
-        $this->assertSame($data['user'], $event->getUsername());
-        $this->assertSame($data['host'], $event->getHost());
-        $this->assertSame($data['message'], $event->getMessage());
-        $this->assertSame($data['command'], $event->getCommand());
-        $this->assertSame($data['targets'], $event->getTargets());
+        $this->checkUserEventData($data, $event);
         $this->assertSame($params, $event->getParams());
     }
 
@@ -112,6 +123,29 @@ class ParserConverterTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($data['code'], $event->getCode());
         $this->assertSame($data['message'], $event->getMessage());
         $this->assertSame($data['command'], $event->getCommand());
+        $this->assertSame($params, $event->getParams());
+    }
+
+    /**
+     * Tests convert() with a CTCP event.
+     */
+    public function testConvertWithCtcpEvent()
+    {
+        $data = array_merge($this->userEvent, array(
+            'ctcp' => array(
+                'command' => 'ACTION',
+                'params' => array(
+                    'all' => 'test',
+                ),
+            ),
+        ));
+        $params = $data['params'];
+        unset($params['all']);
+        $event = $this->converter->convert($data);
+        $this->assertInstanceOf('\Phergie\Irc\Event\CtcpEvent', $event);
+        $this->checkUserEventData($data, $event);
+        $this->assertSame($data['ctcp']['command'], $event->getCtcpCommand());
+        $this->assertSame($data['ctcp']['params'], $event->getCtcpParams());
         $this->assertSame($params, $event->getParams());
     }
 }
