@@ -54,6 +54,17 @@ class ParserConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Checks that the class implements the ParserConverterInterface interface.
+     */
+    public function testClassImplementsParserConverterInterface()
+    {
+        $this->assertInstanceOf(
+            '\Phergie\Irc\Event\ParserConverterInterface',
+            $this->converter
+        );
+    }
+
+    /**
      * Checks that user event data has been converted.
      *
      * @param array $data

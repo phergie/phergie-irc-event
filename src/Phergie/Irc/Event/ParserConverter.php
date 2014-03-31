@@ -17,7 +17,7 @@ namespace Phergie\Irc\Event;
  * @category Phergie
  * @package Phergie\Irc\Event
  */
-class ParserConverter
+class ParserConverter implements ParserConverterInterface
 {
     /**
      * Converts event data into an object.
