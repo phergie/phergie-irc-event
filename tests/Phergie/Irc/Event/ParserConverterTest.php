@@ -96,6 +96,22 @@ class ParserConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests convert() with a user event without prefix data.
+     */
+    public function testConvertWithUserEventWithoutPrefix()
+    {
+        $data = $this->userEvent;
+        unset($data['prefix'], $data['user'], $data['nick'], $data['host']);
+        $params = $data['params'];
+        unset($params['all']);
+        $event = $this->converter->convert($data);
+        $this->assertInstanceOf('\Phergie\Irc\Event\UserEvent', $event);
+        $data['prefix'] = $data['user'] = $data['nick'] = $data['host'] = null;
+        $this->checkUserEventData($data, $event);
+        $this->assertSame($params, $event->getParams());
+    }
+
+    /**
      * Tests convert() with a user event without targets.
      */
     public function testConvertWithUserEventWithoutTargets()

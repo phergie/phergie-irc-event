@@ -35,10 +35,18 @@ class ParserConverter implements ParserConverterInterface
                 $event->setCtcpCommand($data['ctcp']['command']);
                 $event->setCtcpParams($data['ctcp']['params']);
             }
-            $event->setPrefix($data['prefix']);
-            $event->setNick($data['nick']);
-            $event->setUsername($data['user']);
-            $event->setHost($data['host']);
+            if (!empty($data['prefix'])) {
+                $event->setPrefix($data['prefix']);
+            }
+            if (!empty($data['nick'])) {
+                $event->setNick($data['nick']);
+            }
+            if (!empty($data['user'])) {
+                $event->setUsername($data['user']);
+            }
+            if (!empty($data['host'])) {
+                $event->setHost($data['host']);
+            }
             if (!empty($data['targets'])) {
                $event->setTargets($data['targets']);
             }
