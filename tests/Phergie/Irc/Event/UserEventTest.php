@@ -10,6 +10,8 @@
 
 namespace Phergie\Irc\Event;
 
+use Phake;
+
 /**
  * Tests for \Phergie\Irc\Event\UserEvent.
  *
@@ -121,5 +123,37 @@ class UserEventTest extends EventTest
         $targets = array('foo', 'bar');
         $this->event->setTargets($targets);
         $this->assertSame($targets, $this->event->getTargets());
+    }
+
+    /**
+     * Data provider for testGetSource().
+     *
+     * @return array
+     */
+    public function dataProviderGetSource()
+    {
+        $data = array();
+        $data[] = array('#channel', '#channel');
+        $data[] = array('bot', 'user');
+        return $data;
+    }
+
+    /**
+     * Tests getSource().
+     *
+     * @param string $target
+     * @param string $source
+     * @dataProvider dataProviderGetSource
+     */
+    public function testGetSource($target, $source)
+    {
+        $connection = Phake::mock('\Phergie\Irc\ConnectionInterface');
+        Phake::when($connection)->getNickname()->thenReturn('bot');
+
+        $this->event->setNick('user');
+        $this->event->setConnection($connection);
+
+        $this->event->setTargets(array($target));
+        $this->assertSame($source, $this->event->getSource());
     }
 }

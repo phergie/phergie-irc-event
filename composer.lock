@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "0abe9f92325d725b0cb675ad4d60000f",
+    "hash": "820624735c9e80a38ff9eb75d8a57e7b",
     "packages": [
         {
             "name": "phergie/phergie-irc-connection",
@@ -44,34 +44,85 @@
     ],
     "packages-dev": [
         {
-            "name": "phpunit/php-code-coverage",
-            "version": "2.0.5",
+            "name": "phake/phake",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "3dcca2120451b98a98fe60221ca279a184ee64db"
+                "url": "https://github.com/mlively/Phake.git",
+                "reference": "14e4788698e4a21774220c22f3dcaa2e97648b61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/3dcca2120451b98a98fe60221ca279a184ee64db",
-                "reference": "3dcca2120451b98a98fe60221ca279a184ee64db",
+                "url": "https://api.github.com/repos/mlively/Phake/zipball/14e4788698e4a21774220c22f3dcaa2e97648b61",
+                "reference": "14e4788698e4a21774220c22f3dcaa2e97648b61",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "doctrine/common": "2.3.*",
+                "ext-soap": "*",
+                "hamcrest/hamcrest-php": "1.1.*",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "src"
+            ],
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Lively",
+                    "email": "m@digitalsandwich.com"
+                }
+            ],
+            "description": "The Phake mock testing library",
+            "homepage": "https://github.com/mlively/Phake",
+            "keywords": [
+                "mock",
+                "testing"
+            ],
+            "time": "2014-04-16 14:49:56"
+        },
+        {
+            "name": "phpunit/php-code-coverage",
+            "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
+                "reference": "bccecf50645068b44f49a84009e2a0499a500b99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/bccecf50645068b44f49a84009e2a0499a500b99",
+                "reference": "bccecf50645068b44f49a84009e2a0499a500b99",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "phpunit/php-file-iterator": "~1.3.1",
-                "phpunit/php-text-template": "~1.2",
+                "phpunit/php-text-template": "~1.2.0",
                 "phpunit/php-token-stream": "~1.2.2",
-                "sebastian/environment": "~1.0",
+                "sebastian/environment": "~1.0.0",
                 "sebastian/version": "~1.0.3"
             },
             "require-dev": {
                 "ext-xdebug": ">=2.1.4",
-                "phpunit/phpunit": ">=4.0.0,<4.1.0"
+                "phpunit/phpunit": "~4.0.14"
             },
             "suggest": {
                 "ext-dom": "*",
-                "ext-xdebug": ">=2.2.1"
+                "ext-xdebug": ">=2.2.1",
+                "ext-xmlwriter": "*"
             },
             "type": "library",
             "extra": {
@@ -105,7 +156,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-03-28 10:54:55"
+            "time": "2014-04-30 09:01:21"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -292,20 +343,21 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.0.14",
+            "version": "4.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a80b77d92a6c7723d77c6728b4ae37e92a65ac1d"
+                "reference": "8bf3a13f131f23c154f766482aaff568ecdc7135"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a80b77d92a6c7723d77c6728b4ae37e92a65ac1d",
-                "reference": "a80b77d92a6c7723d77c6728b4ae37e92a65ac1d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8bf3a13f131f23c154f766482aaff568ecdc7135",
+                "reference": "8bf3a13f131f23c154f766482aaff568ecdc7135",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
+                "ext-json": "*",
                 "ext-pcre": "*",
                 "ext-reflection": "*",
                 "ext-spl": "*",
@@ -322,9 +374,6 @@
                 "symfony/yaml": "~2.0"
             },
             "suggest": {
-                "ext-json": "*",
-                "ext-simplexml": "*",
-                "ext-tokenizer": "*",
                 "phpunit/php-invoker": "~1.1"
             },
             "bin": [
@@ -363,20 +412,20 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-03-28 11:10:03"
+            "time": "2014-04-30 12:27:38"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "c5e6274b8f2bf983cf883bb375cf44f99aff200e"
+                "reference": "3697daa12ab57b2bfc27b734ab963142f27b9159"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/c5e6274b8f2bf983cf883bb375cf44f99aff200e",
-                "reference": "c5e6274b8f2bf983cf883bb375cf44f99aff200e",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/3697daa12ab57b2bfc27b734ab963142f27b9159",
+                "reference": "3697daa12ab57b2bfc27b734ab963142f27b9159",
                 "shasum": ""
             },
             "require": {
@@ -420,7 +469,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2014-03-18 08:56:48"
+            "time": "2014-04-16 14:50:10"
         },
         {
             "name": "sebastian/diff",
@@ -626,17 +675,17 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "77a41c2835ab7cfe8bf6d15e25d3af8f3eb3bacd"
+                "reference": "65539ecde838f9c0d18b006b2101e3deb4b5c9ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/77a41c2835ab7cfe8bf6d15e25d3af8f3eb3bacd",
-                "reference": "77a41c2835ab7cfe8bf6d15e25d3af8f3eb3bacd",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/65539ecde838f9c0d18b006b2101e3deb4b5c9ff",
+                "reference": "65539ecde838f9c0d18b006b2101e3deb4b5c9ff",
                 "shasum": ""
             },
             "require": {
@@ -671,7 +720,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-12 18:29:58"
+            "time": "2014-04-18 20:37:09"
         }
     ],
     "aliases": [

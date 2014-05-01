@@ -152,4 +152,18 @@ class UserEvent extends Event implements UserEventInterface
     {
         $this->targets = $targets;
     }
+
+    /**
+     * Returns the source of this event.
+     *
+     * @return string User nick or channel name
+     */
+    public function getSource()
+    {
+        $targets = $this->getTargets();
+        if (in_array($this->getConnection()->getNickname(), $targets)) {
+            return $this->getNick();
+        }
+        return reset($targets);
+    }
 }

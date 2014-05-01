@@ -89,4 +89,15 @@ interface UserEventInterface extends EventInterface
      * @return array
      */
     public function getTargets();
+
+    /**
+     * Returns the source of this event.
+     *
+     * If the event occurred within a channel, this will be the channel name.
+     * If it was sent directly to the bot, this will be the nickname of the
+     * originating user.
+     *
+     * @return string User nick or channel name
+     */
+    public function getSource();
 }
