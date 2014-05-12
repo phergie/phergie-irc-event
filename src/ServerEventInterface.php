@@ -28,7 +28,7 @@ interface ServerEventInterface extends EventInterface
     /**
      * Sets the server name.
      *
-     * @param string servername
+     * @param string $servername
      */
     public function setServername($servername);
 
@@ -42,7 +42,7 @@ interface ServerEventInterface extends EventInterface
     /**
      * Sets the descriptive code for the command.
      *
-     * @param string code
+     * @param string $code
      */
     public function setCode($code);
 }

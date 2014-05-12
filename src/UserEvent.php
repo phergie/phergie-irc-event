@@ -126,7 +126,7 @@ class UserEvent extends Event implements UserEventInterface
     /**
      * Sets the host portion of the prefix identifying the sender of the event.
      *
-     * @param string host
+     * @param string $host
      */
     public function setHost($host)
     {

@@ -45,7 +45,7 @@ class ServerEvent extends Event implements ServerEventInterface
     /**
      * Sets the server name.
      *
-     * @param string servername
+     * @param string $servername
      */
     public function setServername($servername)
     {
@@ -65,7 +65,7 @@ class ServerEvent extends Event implements ServerEventInterface
     /**
      * Sets the descriptive code for the command.
      *
-     * @param string code
+     * @param string $code
      */
     public function setCode($code)
     {
