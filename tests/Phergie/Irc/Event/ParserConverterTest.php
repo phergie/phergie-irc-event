@@ -154,9 +154,9 @@ class ParserConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests convert() with a CTCP event.
+     * Tests convert() with a CTCP event with parameters.
      */
-    public function testConvertWithCtcpEvent()
+    public function testConvertWithCtcpEventWithParams()
     {
         $data = array_merge($this->userEvent, array(
             'ctcp' => array(
@@ -173,6 +173,35 @@ class ParserConverterTest extends \PHPUnit_Framework_TestCase
         $this->checkUserEventData($data, $event);
         $this->assertSame($data['ctcp']['command'], $event->getCtcpCommand());
         $this->assertSame($data['ctcp']['params'], $event->getCtcpParams());
+        $this->assertSame($params, $event->getParams());
+    }
+
+    /**
+     * Tests convert() with a CTCP event without parameters.
+     */
+    public function testConvertWithCtcpEventWithoutParams()
+    {
+        $data = array_merge($this->userEvent, array(
+            'command' => 'PRIVMSG',
+            'params' => array(
+                'receivers' => 'victim',
+                'text' => "\001VERSION\001",
+                'all' => "victim :\001VERSION\001",
+            ),
+            'targets' => array('victim'),
+            'ctcp' => array(
+                'command' => 'VERSION',
+            ),
+        ));
+        $params = $data['params'];
+        unset($params['all']);
+        $event = $this->converter->convert($data);
+        $this->assertInstanceOf('\Phergie\Irc\Event\CtcpEvent', $event);
+        $this->checkUserEventData($data, $event);
+        $this->assertSame($data['ctcp']['command'], $event->getCtcpCommand());
+        $ctcpParams = $event->getCtcpParams();
+        $this->assertInternalType('array', $ctcpParams);
+        $this->assertEmpty($ctcpParams);
         $this->assertSame($params, $event->getParams());
     }
 }
