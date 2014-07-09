@@ -8,7 +8,9 @@
  * @package Phergie\Irc\Event
  */
 
-namespace Phergie\Irc\Event;
+namespace Phergie\Irc\Tests\Event;
+
+use Phergie\Irc\Event\CtcpEvent;
 
 /**
  * Tests for \Phergie\Irc\Event\CtcpEvent.

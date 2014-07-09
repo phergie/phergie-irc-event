@@ -8,9 +8,10 @@
  * @package Phergie\Irc\Event
  */
 
-namespace Phergie\Irc\Event;
+namespace Phergie\Irc\Tests\Event;
 
 use Phake;
+use Phergie\Irc\Event\UserEvent;
 
 /**
  * Tests for \Phergie\Irc\Event\UserEvent.

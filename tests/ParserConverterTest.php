@@ -8,7 +8,10 @@
  * @package Phergie\Irc\Event
  */
 
-namespace Phergie\Irc\Event;
+namespace Phergie\Irc\Tests\Event;
+
+use Phergie\Irc\Event\ParserConverter;
+use Phergie\Irc\Event\UserEvent;
 
 /**
  * Tests for \Phergie\Irc\Event\ParserConverter.
