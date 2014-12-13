@@ -11,7 +11,7 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "phergie/phergie-irc-connection": "dev-master"
+        "phergie/phergie-irc-connection": "1.*"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.*",
@@ -26,5 +26,11 @@
         "psr-4": {
             "Phergie\\Irc\\Tests\\Event\\": "tests"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/phergie/phergie-irc-connection"
+        }
+    ]
 }
