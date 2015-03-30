@@ -99,6 +99,17 @@ class ParserConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests convert() with a user event with no params.
+     */
+    public function testConvertWithUserEventWithoutParams()
+    {
+        $data = $this->userEvent;
+        unset($data['params']);
+        $event = $this->converter->convert($data);
+        $this->assertSame(array(), $event->getParams());
+    }
+
+    /**
      * Tests convert() with a user event without prefix data.
      */
     public function testConvertWithUserEventWithoutPrefix()

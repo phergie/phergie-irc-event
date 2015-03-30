@@ -58,10 +58,12 @@ class ParserConverter implements ParserConverterInterface
             $event->setCode($data['code']);
         }
         $event->setMessage($data['message']);
-        if (isset($data['params']['all'])) {
-            unset($data['params']['all']);
+        if (isset($data['params'])) {
+            if (isset($data['params']['all'])) {
+                unset($data['params']['all']);
+            }
+            $event->setParams($data['params']);
         }
-        $event->setParams($data['params']);
         $event->setCommand($data['command']);
         return $event;
     }
