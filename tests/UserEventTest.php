@@ -136,6 +136,7 @@ class UserEventTest extends EventTest
         $data = array();
         $data[] = array('#channel', '#channel');
         $data[] = array('bot', 'user');
+        $data[] = array('Bot', 'user');
         return $data;
     }
 
