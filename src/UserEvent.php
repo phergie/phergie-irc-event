@@ -160,8 +160,9 @@ class UserEvent extends Event implements UserEventInterface
      */
     public function getSource()
     {
-        $targets = $this->getTargets();
-        if (in_array($this->getConnection()->getNickname(), $targets)) {
+        $targets = array_map('strtolower', $this->getTargets());
+        $nick = strtolower($this->getConnection()->getNickname());
+        if (in_array($nick, $targets)) {
             return $this->getNick();
         }
         return reset($targets);
