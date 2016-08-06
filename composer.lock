@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dca4d20acf3e7b58258e709c4564646e",
+    "hash": "d207dd8b03d0d254b1719bb7bd22e83c",
+    "content-hash": "43c7491f81efa3f99e34d95dc4b76f7f",
     "packages": [
         {
             "name": "phergie/phergie-irc-connection",
@@ -866,7 +867,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.3"
+        "php": ">=5.6.0"
     },
     "platform-dev": []
 }
